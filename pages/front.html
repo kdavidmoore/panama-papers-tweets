@@ -1,7 +1,6 @@
-<div class="container">
-	<div class="row" ng-repeat="tweet in tweets">
-		<div class="col-sm-12">
-			<h5>{{tweet.text}}</h5>
-		</div>
+<div class="row" ng-repeat="tweet in tweets">
+	<div class="background-div" ng-style="{'background-image':'url({{tweet.user.profile_background_image_url}})'}">
+		<h1>{{tweet.text}}</h1>
+		<h3>{{tweet.user.name}} - {{tweet.sinceTweeted}} {{tweet.timeUnits}} ago</h3>
 	</div>
 </div>
