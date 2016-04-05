@@ -9,19 +9,16 @@ tweetsApp.config(function($routeProvider){
 	$routeProvider.otherwise({
 		redirectTo: 'pages/front.html'
 	});
-})
+});
 
 tweetsApp.controller('mainController', function($scope, $http){
+	$scope.message = 'Hello, world!';
+
 	var searchUrl = 'http://www.digitalcrafts.com/students/twitter/hashtag.php?hash=panamapapers';
-	$.getJSON(searchUrl, function(searchResults){
-		$scope.tweets = searchResults.statuses;
-		console.dir($scope.tweets);
-	});
-	
-	/* $http.get(searchUrl).then(function successCallBack(response) {
-		$scope.tweets = response.statuses;
+
+	$http.get(searchUrl).success(function(data){
+		console.log(data);
+		$scope.tweets = data.statuses;
 		console.log($scope.tweets);
-	}, function errorCallBack(response) {
-	    console.log("Something went wrong...");
-	}); */
-})
+	});
+});
