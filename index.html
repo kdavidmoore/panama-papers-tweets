@@ -10,18 +10,33 @@
   <script type="text/javascript" src="js/angular.min.js"></script>
   <script type="text/javascript" src="js/angular-route.min.js"></script>
   <script type="text/javascript" src="js/angular-animate.min.js"></script>
-  <script type="text/javascript" src="js/mainController.js"></script>
+  <script type="text/javascript" src="js/angular-sanitize.min.js"></script>
+  <script type="text/javascript" src="js/mainModule.js"></script>
 </head>
-<body ng-controller="mainController">
+<body>
   <div class="container">
     <div id="header" class="row">
-      <div class="col-sm-12 text-center">
-        <h1>See what folks are saying about the Panama Papers leak</h1>
-        <h3>Courtesy Twitter's Streaming APIs</h3>
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <h1>See what folks are saying about the #PanamaPapers leak</h1>
+          <h3>Courtesy Twitter's Streaming APIs</h3>
+        </div>
       </div>
-    </div>
-    <div id="update-tweets" ng-click="updateTweets()">
-      <a href="#/"><span>Update tweets?</span></a>
+      <div class="row lang-buttons">
+        <div class="col-sm-12 text-center">
+          <div class="btn-group-lg">
+            <div class="btn btn-default">
+              <a ng-href="#/lang/en">English</a>
+            </div>
+            <div class="btn btn-default">
+              <a ng-href="#/lang/es">Spanish</a>
+            </div>
+            <div class="btn btn-default">
+              <a ng-href="#/lang/fr">French</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div id="views" ng-view>
           <!-- placeholder -->
