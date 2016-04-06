@@ -1,4 +1,4 @@
-# Panama Papers Tweetes
+# Panama Papers Tweets
 
 ## Get tweets about the Panama Papers leaks
 
