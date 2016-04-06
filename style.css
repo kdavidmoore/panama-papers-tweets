@@ -19,6 +19,7 @@ a:hover {
   height: 80vh;
 }
 #header {
+  width: 100vw;
   height: 50vh;
   min-height: 200px;
   background-image: url('stock.jpg');
