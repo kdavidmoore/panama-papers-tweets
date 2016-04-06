@@ -1,10 +1,10 @@
 # Panama Papers Tweetes
 
-## Get tweets about the Panama Papers / Panama Leaks
+## Get tweets about the Panama Papers leaks
 
-User can get tweets about the Panama Papers / Panama Leaks using Twitter API, along with a custom PHP script hosted by DigitalCrafts. Written using AngularJS and Material Design.
+Single-page app that displays tweets about #PanamaPapers. Retrieves tweet data using Twitter's Streaming APIs, along with a custom PHP script developed by Robert Bunch at DigitalCrafts. This app was written using AngularJS and Bootstrap.
 
 ## Demo here
-
+Insert link to portfolio.
 
 [I learned this at DigitalCrafts](https://www.digitalcrafts.com)
