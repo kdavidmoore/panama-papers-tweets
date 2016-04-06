@@ -1,8 +1,6 @@
 <div ng-controller="mainController">
-	<div class="row tweet-row" ng-repeat="tweet in tweets">
-		<div class="background-div" ng-style="{'background-image':'url({{tweet.user.profile_background_image_url}})'}">
-			<h1><div ng-bind-html="tweet.text | linky"></div></h1>
-			<h3>{{tweet.user.name}} - {{tweet.sinceTweeted}} {{tweet.timeUnits}} ago</h3>
-		</div>
+	<div class="row tweet-row" ng-repeat="tweet in tweets" ng-style="{'background-image':'url({{tweet.user.profile_background_image_url}})'}">
+		<h1><div ng-bind-html="tweet.text | linky"></div></h1>
+		<h3>{{tweet.user.name}} - {{tweet.sinceTweeted}} {{tweet.timeUnits}} ago</h3>
 	</div>
 </div>
