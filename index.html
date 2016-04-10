@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="tweetsApp">
 <head>
-  <title>Panama Papers Tweets</title>
+  <title>Get Tweets</title>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -12,34 +12,36 @@
   <script type="text/javascript" src="js/angular-animate.min.js"></script>
   <script type="text/javascript" src="js/angular-sanitize.min.js"></script>
   <script type="text/javascript" src="js/mainModule.js"></script>
+  <script type="text/javascript" src="js/myFactory.js"></script>
+  <script type="text/javascript" src="js/mainController.js"></script>
 </head>
-<body>
+<body ng-controller="mainController">
   <div class="container">
     <div id="header" class="row">
-      <div class="row">
-        <div class="col-sm-12 text-center">
-          <h1>Get the latest scoop on the #PanamaPapers leak</h1>
-          <h3>Choose tweets written in&hellip;</h3>
-        </div>
-      </div>
-      <div class="row lang-buttons">
-        <div class="col-sm-12 text-center">
-          <div class="btn-group-lg">
-            <div class="btn btn-default">
-              <a ng-href="#/lang/en">English</a>
-            </div>
-            <div class="btn btn-default">
-              <a ng-href="#/lang/es">Spanish</a>
-            </div>
-            <div class="btn btn-default">
-              <a ng-href="#/lang/fr">French</a>
-            </div>
+      <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4 text-center">
+        <form ng-submit="updateHash()">
+          <div class="input-group">
+            <input type="text" class="form-control" ng-model="userHash" placeholder="Enter a hashtag" required="string" ng-maxlength="20" ng-minlength="3">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit">Get tweets</button>
+            </span>
           </div>
-        </div>
+        </form>
       </div>
     </div>
-    <div id="views" ng-view>
-          <!-- placeholder -->
+    <div id="views">
+      <div class="row tweet-row" ng-repeat="tweet in tweets" ng-style="{'background-image':'url({{tweet.user.profile_background_image_url}})'}">
+        <h1>
+          <div ng-bind-html="tweet.text | linky"></div>
+        </h1>
+        <h3>{{tweet.user.name}} - {{tweet.sinceTweeted}} {{tweet.timeUnits}} ago</h3>
+      </div>
+      <div class="row tweet-row" ng-repeat="tweet in tweets" ng-style="{'background-image':'url({{tweet.user.profile_background_image_url}})'}">
+        <h1>
+          <div ng-bind-html="tweet.text | linky"></div>
+        </h1>
+        <h3>{{tweet.user.name}} - {{tweet.sinceTweeted}} {{tweet.timeUnits}} ago</h3>
+      </div>
     </div>
   </div>
 </body>
