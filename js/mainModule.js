@@ -23,17 +23,14 @@ tweetsApp.config(function($routeProvider){
 	});
 });
 
-tweetsApp.controller('mainController', function($scope, $http, $interval){
-	var searchUrl = 'http://www.digitalcrafts.com/students/twitter/hashtag.php?hash=panamapapers';
-
-	$http.get(searchUrl).success(function(data){
+tweetsApp.controller('mainController', ['$scope', '$http', '$interval', 'TweetsFactory', function($scope, $http, $interval, TweetsFactory){
+	TweetsFactory.getTweets().then(function(data) {
 		$scope.tweets = data.statuses;
 		if (data.statuses.length < 1) {
 			$scope.message = 'There are no recent Tweets to display.';
 		}
 
 		var isMinutes = [];
-
 		for (i=0; i<$scope.tweets.length; i++){
 			var time = $scope.tweets[i].created_at;
 			var tweetTime = new Date(time);
@@ -57,15 +54,13 @@ tweetsApp.controller('mainController', function($scope, $http, $interval){
 						isMinutes.push(false);
 					}
 				}
-			}, 1000);
+			}, 10000);
 		}
 	});
-});
+}]);
 
-tweetsApp.controller('enController', function($scope, $http, $interval){
-	var searchUrl = 'http://www.digitalcrafts.com/students/twitter/hashtag.php?hash=panamapapers';
-
-	$http.get(searchUrl).success(function(data){
+tweetsApp.controller('enController', ['$scope', '$http', '$interval', 'TweetsFactory', function($scope, $http, $interval, TweetsFactory){
+	TweetsFactory.getTweets().then(function(data) {
 		var allData = data.statuses;
 		var myTweets = [];
 		var isMinutes = [];
@@ -102,15 +97,13 @@ tweetsApp.controller('enController', function($scope, $http, $interval){
 						isMinutes.push(false);
 					}
 				}
-			}, 1000);
+			}, 10000);
 		}
 	});
-});
+}]);
 
-tweetsApp.controller('esController', function($scope, $http, $interval){
-	var searchUrl = 'http://www.digitalcrafts.com/students/twitter/hashtag.php?hash=panamapapers';
-
-	$http.get(searchUrl).success(function(data){
+tweetsApp.controller('esController', ['$scope', '$http', '$interval', 'TweetsFactory', function($scope, $http, $interval, TweetsFactory){
+	TweetsFactory.getTweets().then(function(data) {
 		var allData = data.statuses;
 		var myTweets = [];
 		var isMinutes = [];
@@ -147,15 +140,13 @@ tweetsApp.controller('esController', function($scope, $http, $interval){
 						isMinutes.push(false);
 					}
 				}
-			}, 1000);
+			}, 10000);
 		}
 	});
-});
+}]);
 
-tweetsApp.controller('frController', function($scope, $http, $interval){
-	var searchUrl = 'http://www.digitalcrafts.com/students/twitter/hashtag.php?hash=panamapapers';
-
-	$http.get(searchUrl).success(function(data){
+tweetsApp.controller('frController', ['$scope', '$http', '$interval', 'TweetsFactory', function($scope, $http, $interval, TweetsFactory){
+	TweetsFactory.getTweets().then(function(data) {
 		var allData = data.statuses;
 		var myTweets = [];
 		var isMinutes = [];
@@ -192,7 +183,7 @@ tweetsApp.controller('frController', function($scope, $http, $interval){
 						isMinutes.push(false);
 					}
 				}
-			}, 1000);
+			}, 10000);
 		}
 	});
-});
+}]);

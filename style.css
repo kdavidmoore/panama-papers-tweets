@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 html, body, .container{
   margin: 0px;
   padding: 0px;
@@ -23,7 +26,10 @@ a:hover {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   min-height: 300px;
-  min-width: 500px;
+}
+.tweet-inner-wrapper {
+  background-color: rgba(0,0,0,0.5);
+  padding: 30px;
 }
 #header {
   width: 100vw;
@@ -42,16 +48,6 @@ a:hover {
 #update-tweets span {
   font-weight: bold;
   font-size: 20px;
-}
-.tweet-row h1, .tweet-row h3 {
-  padding-left: 5%;
-  padding-right: 5%;
-}
-.tweet-row h1 {
-  padding-top: 50px;
-}
-.tweet-row h3 {
-  padding-top: 20px;
 }
 .lang-buttons {
   padding-top: 50px;
