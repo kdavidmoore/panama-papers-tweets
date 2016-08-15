@@ -28,6 +28,10 @@ tweetsApp.controller('mainController', function($scope, $http, $interval){
 
 	$http.get(searchUrl).success(function(data){
 		$scope.tweets = data.statuses;
+		if (data.statuses.length < 1) {
+			$scope.message = 'There are no recent Tweets to display.';
+		}
+
 		var isMinutes = [];
 
 		for (i=0; i<$scope.tweets.length; i++){
@@ -71,6 +75,9 @@ tweetsApp.controller('enController', function($scope, $http, $interval){
 			}
 		}
 		$scope.tweets = myTweets;
+		if (myTweets.length < 1) {
+			$scope.message = 'There are no recent Tweets to display in this language.';
+		}
 
 		for (i=0; i<$scope.tweets.length; i++){
 			var time = $scope.tweets[i].created_at;
@@ -113,6 +120,9 @@ tweetsApp.controller('esController', function($scope, $http, $interval){
 			}
 		}
 		$scope.tweets = myTweets;
+		if (myTweets.length < 1) {
+			$scope.message = 'There are no recent Tweets to display in this language.';
+		}
 
 		for (i=0; i<$scope.tweets.length; i++){
 			var time = $scope.tweets[i].created_at;
@@ -155,6 +165,9 @@ tweetsApp.controller('frController', function($scope, $http, $interval){
 			}
 		}
 		$scope.tweets = myTweets;
+		if (myTweets.length < 1) {
+			$scope.message = 'There are no recent Tweets to display in this language.';
+		}
 
 		for (i=0; i<$scope.tweets.length; i++){
 			var time = $scope.tweets[i].created_at;
