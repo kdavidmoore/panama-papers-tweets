@@ -5,10 +5,11 @@ tweetsApp.controller('mainController', function($scope, $interval, myFactory){
 	function submitHash(){
 		myFactory.callTwitter().then(function(data){
 			$scope.tweets = data.statuses;
-			console.log($scope.tweets);
-			//displayTweets();
-		}, function(data){
-			alert(data);
+			if (data.statuses.length < 1) {
+				$scope.message = 'There are no Tweets to display in this language.';
+			}
+		}, function(err){
+			console.log('Something went wrong: ' + data);
 		});
 	}
 
@@ -16,21 +17,19 @@ tweetsApp.controller('mainController', function($scope, $interval, myFactory){
 		myFactory.setHash($scope.userHash);
 		submitHash();
 	};
-	//myFactory.setHash('panamapapers');
-	// end factory stuff
 
 	var isMinutes = [];
 
 	for (i=0; i<$scope.tweets.length; i++){
 		var time = $scope.tweets[i].created_at;
 		var tweetTime = new Date(time);
-		$scope.tweets[i].tweetSeconds = tweetTime.getTime()/1000;
+		$scope.tweets[i].tweetSeconds = tweetTime.getTime() / 1000;
 		$scope.tweets[i].timeUnits = 'seconds';
 		
 		$interval(function(){
 			for (i=0; i<$scope.tweets.length; i++){
 				var currentDate = new Date();
-				var now = currentDate.getTime()/1000;
+				var now = currentDate.getTime() / 1000;
 				$scope.tweets[i].sinceTweeted = Math.floor(now - $scope.tweets[i].tweetSeconds);
 
 				if ($scope.tweets[i].sinceTweeted > 60) {
