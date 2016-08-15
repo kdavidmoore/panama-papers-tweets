@@ -1,0 +1,25 @@
+{
+  "name": "panama-papers-tweets",
+  "version": "1.0.0",
+  "description": "## Get tweets about the Panama Papers leaks",
+  "main": "server.js",
+  "dependencies": {
+    "connect": "^3.4.1",
+    "serve-static": "^1.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kdavidmoore/panama-papers-tweets.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kdavidmoore/panama-papers-tweets/issues"
+  },
+  "homepage": "https://github.com/kdavidmoore/panama-papers-tweets#readme"
+}
