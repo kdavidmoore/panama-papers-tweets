@@ -1,24 +1,24 @@
 var tweetsApp = angular.module('tweetsApp', ['ngRoute', 'ngSanitize']);
 
-tweetsApp.config(function($routeProvider){
-	$routeProvider.when('/',{
+tweetsApp.config(function($routeProvider) {
+	$routeProvider.when('/', {
 		templateUrl: 'pages/front.html',
 		controller: 'mainController'
-	});
-	$routeProvider.when('/lang/en',{
+	})
+	.when('/lang/en', {
 		templateUrl: 'pages/english.html',
 		controller: 'enController'
-	});
-	$routeProvider.when('/lang/es',{
+	})
+	.when('/lang/es', {
 		templateUrl: 'pages/spanish.html',
 		controller: 'esController'
-	});
-	$routeProvider.when('/lang/fr',{
+	})
+	.when('/lang/fr', {
 		templateUrl: 'pages/french.html',
 		controller: 'frController'
-	});
-	// send the user back to the home page if the route is not valid
-	$routeProvider.otherwise({
+	})
+	// if the route is not valid, send the user back to the home page
+	.otherwise({
 		redirectTo: 'pages/front.html'
 	});
 });
